@@ -8,15 +8,13 @@ import { buttonVariants } from '@/components/ui/button'
 async function getGitHubStars(): Promise<string | null> {
   try {
     const response = await fetch(
-      'https://api.github.com/repos/shadcn/gpt-admin',
+      'https://api.github.com/repos/Mask-MJ/gpt-admin',
       {
         headers: {
           Accept: 'application/vnd.github+json',
           Authorization: `Bearer ${env.GITHUB_ACCESS_TOKEN}`,
         },
-        next: {
-          revalidate: 60,
-        },
+        next: { revalidate: 60 },
       }
     )
 
@@ -37,7 +35,7 @@ export default async function IndexPage() {
 
   return (
     <>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+      <section className="space-y-6 py-6 md:pb-12 md:pt-10 lg:py-32">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <Link
             href={siteConfig.links.github}
@@ -171,8 +169,8 @@ export default async function IndexPage() {
         </div>
         <div className="mx-auto text-center md:max-w-[58rem]">
           <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Taxonomy also includes a blog and a full-featured documentation site
-            built using Contentlayer and MDX.
+            gpt-admin also includes a blog and a full-featured documentation
+            site built using Contentlayer and MDX.
           </p>
         </div>
       </section>
@@ -182,7 +180,7 @@ export default async function IndexPage() {
             Proudly Open Source
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Taxonomy is open source and powered by open source software. <br />{' '}
+            gpt-admin is open source and powered by open source software. <br />{' '}
             The code is available on{' '}
             <Link
               href={siteConfig.links.github}

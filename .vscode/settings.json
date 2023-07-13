@@ -62,7 +62,7 @@
   "files.exclude": {
     "**/.editorconfig": true,
     "**/pnpm-lock.yaml": true,
-    ".next": true,
+    // ".next": true,
     "**/README.md": true,
     "postcss.config.js": true,
     "**/.prettierignore": true,

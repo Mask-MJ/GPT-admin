@@ -7,7 +7,7 @@ interface SiteConfig {
 
 // 站点配置
 export const siteConfig: SiteConfig = {
-  name: 'NEXT BOILERPLATE',
+  name: 'NEXT',
   description:
     'Next.js boilerplate with TypeScript, ESLint, Prettier, Husky, Lint-Staged, and more.',
   url: 'https://next.moyaojun.com',
