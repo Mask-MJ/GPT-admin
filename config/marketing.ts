@@ -4,13 +4,8 @@ type MarketingConfig = {
 
 export const marketingConfig: MarketingConfig = {
   mainNav: [
-    {
-      title: 'Blog',
-      href: '/blog',
-    },
-    {
-      title: '导航',
-      href: '/navigation',
-    },
+    { title: 'Blog', href: '/blog' },
+    { title: 'Repositories', href: '/repositories' },
+    { title: 'Navigation', href: '/navigation' },
   ],
 }

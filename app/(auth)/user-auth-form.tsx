@@ -36,21 +36,24 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
   async function onSubmit(data: FormData) {
     setIsLoading(true)
-
-    const signInResult = await signIn('email', {
-      email: data.email.toLowerCase(),
-      redirect: false,
-      callbackUrl: searchParams?.get('from') || '/dashboard',
-    })
-
-    setIsLoading(false)
-
-    if (!signInResult?.ok) {
-      return toast({
-        title: 'Something went wrong.',
-        description: 'Your sign in request failed. Please try again.',
-        variant: 'destructive',
+    console.log(data)
+    try {
+      const signInResult = await signIn('email', {
+        email: data.email.toLowerCase(),
+        // redirect: false,
+        // callbackUrl: searchParams?.get('from') || '/dashboard',
       })
+      setIsLoading(false)
+
+      if (!signInResult?.ok) {
+        return toast({
+          title: 'Something went wrong.',
+          description: 'Your sign in request failed. Please try again.',
+          variant: 'destructive',
+        })
+      }
+    } catch (err) {
+      console.log(err)
     }
 
     return toast({
@@ -114,6 +117,22 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           <Github className="mr-2 h-4 w-4" />
         )}{' '}
         Github
+      </button>
+      <button
+        type="button"
+        className={cn(buttonVariants({ variant: 'outline' }))}
+        onClick={() => {
+          setIsGitHubLoading(true)
+          signIn('google')
+        }}
+        disabled={isLoading || isGitHubLoading}
+      >
+        {isGitHubLoading ? (
+          <Loader className="mr-2 h-4 w-4 animate-spin" />
+        ) : (
+          <Github className="mr-2 h-4 w-4" />
+        )}{' '}
+        Google
       </button>
     </div>
   )
